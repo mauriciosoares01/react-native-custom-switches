@@ -14,6 +14,8 @@ Select the switch that you like (see options in 'Available switches'), import an
 
 #### Labeled switch
 
+![Labeled switch gif](./../assets/labeledSwitch.gif)
+
 `import {LabeledSwitch} from 'react-native-custom-switch';`
 
 | Props      | Type     | Default  | Description                    |
@@ -25,3 +27,4 @@ Select the switch that you like (see options in 'Available switches'), import an
 | leftColor  | string   | #00b33   | color for _true_ value         |
 | rightColor | string   | #ff3333  | color for _false_ value        |
 | width      | number   | 120      | width of the switch            |
+| duration   | number   | 400      | timing to execute animation    |
