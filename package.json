@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-switches",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A library (in construction) with several (not yet) switches options for React Native projects.",
   "main": "index.js",
   "scripts": {
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/mauriciosoares01/react-native-custom-switches/issues"
   },
-  "homepage": "https://github.com/mauriciosoares01/react-native-custom-switches#readme"
+  "homepage": "https://github.com/mauriciosoares01/react-native-custom-switches#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
