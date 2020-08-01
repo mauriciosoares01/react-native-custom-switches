@@ -1,4 +1,4 @@
-# React native Custom Switches
+# :snail: React Native Custom Switches
 
 A library (in construction) with several (not yet) switches options for React Native projects.
 
