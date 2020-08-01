@@ -6,11 +6,6 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"dependencies": {
-		"react": "16.x",
-		"react-native": "^0.61.x",
-		"styled-components": "^4.x"
-	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/mauriciosoares01/react-native-custom-switches.git"
