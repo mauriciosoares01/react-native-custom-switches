@@ -1,7 +1,5 @@
 # React native Custom Switches
 
-# [WIP] DO NOT USE THIS LIBRARY YET
-
 A library (in construction) with several (not yet) switches options for React Native projects.
 
 ## Install
