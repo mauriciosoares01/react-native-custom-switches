@@ -12,7 +12,7 @@ import {
 	Fade,
 } from "./styles";
 
-function OpenMerchantButton({
+function LabeledSwitch({
 	value,
 	onChange,
 	leftLabel,
@@ -134,3 +134,5 @@ OpenMerchantButton.propTypes = {
 	rightColor: PropTypes.string.isRequired,
 	width: PropTypes.number.isRequired,
 };
+
+export default LabeledSwitch;
