@@ -115,7 +115,7 @@ function LabeledSwitch({
 	);
 }
 
-OpenMerchantButton.defaultProps = {
+LabeledSwitch.defaultProps = {
 	value: false,
 	onChange: () => {},
 	leftLabel: "Opened",
@@ -125,7 +125,7 @@ OpenMerchantButton.defaultProps = {
 	width: 120,
 };
 
-OpenMerchantButton.propTypes = {
+LabeledSwitch.propTypes = {
 	value: PropTypes.bool.isRequired,
 	onChange: PropTypes.func.isRequired,
 	leftLabel: PropTypes.string.isRequired,
