@@ -1,0 +1,25 @@
+{
+	"name": "react-native-custom-switches",
+	"version": "1.0.0",
+	"description": "A library (in construction) with several (not yet) switches options for React Native projects.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mauriciosoares01/react-native-custom-switches.git"
+	},
+	"keywords": [
+		"switch",
+		"custom",
+		"react native",
+		"customisable"
+	],
+	"author": "mauriciosoares01",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/mauriciosoares01/react-native-custom-switches/issues"
+	},
+	"homepage": "https://github.com/mauriciosoares01/react-native-custom-switches#readme"
+}
