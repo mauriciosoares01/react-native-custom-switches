@@ -1,4 +1,4 @@
-# :snail: React native Custom Switches
+# :snail: React Native Custom Switches
 
 A library (in construction) with several (not yet) switches options for React Native projects.
 
@@ -6,9 +6,9 @@ This lib uses only React Native Animated.
 
 ## Install
 
-```
+````
 npm install react-native-custom-switches
-```
+````
 
 ## Usage
 
