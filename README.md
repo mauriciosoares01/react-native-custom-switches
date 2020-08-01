@@ -6,7 +6,9 @@ This lib uses only React Native Animated.
 
 ## Install
 
-`npm install react-native-custom-switches`
+````
+npm install react-native-custom-switches
+````
 
 ## Usage
 
