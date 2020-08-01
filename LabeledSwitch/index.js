@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { Animated, Easing } from "react-native";
-import PropTypes from "prop-types";
 import {
-	Container,
-	OpenedView,
-	ClosedView,
-	Slider,
-	Label,
-	Touch,
-	Content,
-	Fade,
-} from "./styles";
+	Animated,
+	Easing,
+	View,
+	TouchableWithoutFeedback,
+	Text,
+} from "react-native";
+import PropTypes from "prop-types";
+import stylesheet from "./styles";
+import { OpenedView, ClosedView, Slider, Label, Fade } from "./styles";
 
 function LabeledSwitch({
 	value,
@@ -95,23 +93,33 @@ function LabeledSwitch({
 	}
 
 	return (
-		<Container>
-			<Touch onPress={_startAnimation}>
-				<Content width={width}>
-					<Slider style={[styles.slider]} />
-					<ClosedView color={rightColor}>
-						<Fade style={[{ opacity: fadeClosed }]}>
-							<Label>{rightLabel}</Label>
-						</Fade>
-					</ClosedView>
-					<OpenedView style={[{ width: widthOpen }]} color={leftColor}>
-						<Fade style={[{ opacity: fadeOpened }]}>
-							<Label>{leftLabel}</Label>
-						</Fade>
-					</OpenedView>
-				</Content>
-			</Touch>
-		</Container>
+		<View>
+			<TouchableWithoutFeedback onPress={_startAnimation}>
+				<View style={[{ width: width }, { ...stylesheet.content }]}>
+					<Animated.View style={[styles.slider, stylesheet.slider]} />
+					<Animated.View
+						style={[
+							{ width: width, backgroundColor: rightColor },
+							stylesheet.closedView,
+						]}
+					>
+						<Animated.View style={[{ opacity: fadeClosed }]}>
+							<Text style={stylesheet.label}>{rightLabel}</Text>
+						</Animated.View>
+					</Animated.View>
+					<Animated.View
+						style={[
+							{ width: widthOpen, backgroundColor: leftColor },
+							stylesheet.openedView,
+						]}
+					>
+						<Animated.View style={[{ opacity: fadeOpened }]}>
+							<Text style={stylesheet.label}>{leftLabel}</Text>
+						</Animated.View>
+					</Animated.View>
+				</View>
+			</TouchableWithoutFeedback>
+		</View>
 	);
 }
 
