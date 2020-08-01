@@ -12,25 +12,24 @@ import stylesheet from "./styles";
 function LabeledSwitch({
   value,
   onChange,
-  leftLabel,
-  rightLabel,
-  leftColor,
-  rightColor,
+  enabledLabel,
+  disabledLabel,
+  enabledColor,
+  disabledColor,
+  disabledLabelColor,
+  enabledLabelColor,
   width,
   duration,
 }) {
   const sliderWidth = 45;
-  const [widthOpen] = useState(new Animated.Value(value ? width : sliderWidth));
+  const [widthEnabled] = useState(
+    new Animated.Value(value ? width : sliderWidth)
+  );
   const [sliderPosition] = useState(
     new Animated.Value(value ? width - sliderWidth : 0)
   );
-  const [fadeOpened] = useState(new Animated.Value(value ? 1 : 0));
-  const [fadeClosed] = useState(new Animated.Value(value ? 0 : 1));
-  const styles = {
-    slider: {
-      transform: [{ translateX: sliderPosition }],
-    },
-  };
+  const [fadeEnabled] = useState(new Animated.Value(value ? 1 : 0));
+  const [fadeDisabled] = useState(new Animated.Value(value ? 0 : 1));
 
   function handleChange(data) {
     onChange(data);
@@ -40,7 +39,7 @@ function LabeledSwitch({
     if (value) {
       handleChange(false);
       Animated.parallel([
-        Animated.timing(widthOpen, {
+        Animated.timing(widthEnabled, {
           toValue: sliderWidth,
           duration: duration,
           useNativeDriver: false,
@@ -52,12 +51,12 @@ function LabeledSwitch({
           useNativeDriver: true,
           easing: Easing.ease,
         }),
-        Animated.timing(fadeOpened, {
+        Animated.timing(fadeEnabled, {
           toValue: 0,
           duration: duration,
           useNativeDriver: false,
         }),
-        Animated.timing(fadeClosed, {
+        Animated.timing(fadeDisabled, {
           toValue: 1,
           duration: duration,
           useNativeDriver: false,
@@ -66,7 +65,7 @@ function LabeledSwitch({
     } else {
       handleChange(true);
       Animated.parallel([
-        Animated.timing(widthOpen, {
+        Animated.timing(widthEnabled, {
           toValue: width,
           duration: duration,
           useNativeDriver: false,
@@ -78,12 +77,12 @@ function LabeledSwitch({
           useNativeDriver: true,
           easing: Easing.ease,
         }),
-        Animated.timing(fadeOpened, {
+        Animated.timing(fadeEnabled, {
           toValue: 1,
           duration: duration,
           useNativeDriver: false,
         }),
-        Animated.timing(fadeClosed, {
+        Animated.timing(fadeDisabled, {
           toValue: 0,
           duration: duration,
           useNativeDriver: false,
@@ -98,23 +97,34 @@ function LabeledSwitch({
         <View style={[{ width: width }, { ...stylesheet.content }]}>
           <Animated.View
             style={[
-              { width: width, backgroundColor: rightColor },
-              stylesheet.closedView,
+              { width: width, backgroundColor: disabledColor },
+              stylesheet.disabledView,
             ]}
           >
-            <Animated.View style={[{ opacity: fadeClosed }]}>
-              <Text style={stylesheet.labelClosed}>{rightLabel}</Text>
+            <Animated.View style={[{ opacity: fadeDisabled }]}>
+              <Text
+                style={[
+                  stylesheet.disabledLabel,
+                  { color: disabledLabelColor },
+                ]}
+              >
+                {disabledLabel}
+              </Text>
             </Animated.View>
           </Animated.View>
           <Animated.View
             style={[
-              { width: widthOpen, backgroundColor: leftColor },
-              stylesheet.openedView,
+              { width: widthEnabled, backgroundColor: enabledColor },
+              stylesheet.enabledView,
             ]}
           >
             <Animated.View style={[stylesheet.slider]} />
-            <Animated.View style={[{ opacity: fadeOpened }]}>
-              <Text style={stylesheet.labelOpened}>{leftLabel}</Text>
+            <Animated.View style={[{ opacity: fadeEnabled }]}>
+              <Text
+                style={[stylesheet.enabledLabel, { color: enabledLabelColor }]}
+              >
+                {enabledLabel}
+              </Text>
             </Animated.View>
           </Animated.View>
         </View>
@@ -126,10 +136,12 @@ function LabeledSwitch({
 LabeledSwitch.defaultProps = {
   value: false,
   onChange: () => {},
-  leftLabel: "Opened",
-  rightLabel: "Closed",
-  leftColor: "#00b333",
-  rightColor: "#ff3333",
+  enabledLabel: "Enabled",
+  disabledLabel: "Disabled",
+  enabledColor: "#00b333",
+  disabledColor: "#ff3333",
+  disabledLabelColor: "#fff",
+  enabledLabelColor: "#fff",
   width: 120,
   duration: 400,
 };
@@ -137,10 +149,12 @@ LabeledSwitch.defaultProps = {
 LabeledSwitch.propTypes = {
   value: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
-  leftLabel: PropTypes.string.isRequired,
-  rightLabel: PropTypes.string.isRequired,
-  leftColor: PropTypes.string.isRequired,
-  rightColor: PropTypes.string.isRequired,
+  enabledLabel: PropTypes.string.isRequired,
+  disabledLabel: PropTypes.string.isRequired,
+  disabledLabelColor: PropTypes.string.isRequired,
+  enabledLabelColor: PropTypes.string.isRequired,
+  enabledColor: PropTypes.string.isRequired,
+  disabledColor: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   duration: PropTypes.number.isRequired,
 };

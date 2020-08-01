@@ -20,13 +20,13 @@ export default StyleSheet.create({
     shadowRadius: 2,
     elevation: 2,
   },
-  openedView: {
+  enabledView: {
     height: 25,
     flexDirection: "row",
     borderRadius: 25,
     position: "absolute",
   },
-  closedView: {
+  disabledView: {
     zIndex: -1,
     borderRadius: 25,
     height: 25,
@@ -35,17 +35,15 @@ export default StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
-  labelClosed: {
+  disabledLabel: {
     paddingHorizontal: 12,
     fontSize: 12,
-    color: "#fff",
   },
-  labelOpened: {
+  enabledLabel: {
     top: 5,
     left: 0,
     position: "absolute",
     paddingHorizontal: 12,
     fontSize: 12,
-    color: "#fff",
   },
 });
