@@ -2,6 +2,8 @@
 
 A library (in construction) with several (not yet) switches options for React Native projects.
 
+This lib uses only React Native Animated.
+
 ## Install
 
 `npm install react-native-custom-switches`
@@ -14,9 +16,34 @@ Select the switch that you like (see options in 'Available switches'), import an
 
 #### Labeled switch
 
-![Labeled switch gif](./../assets/labeledSwitch.gif)
+![Labeled switch gif](./assets/labeledSwitch.gif)
 
-`import {LabeledSwitch} from 'react-native-custom-switch';`
+Example:
+
+```
+import React, {useState} from 'react';
+import {View, Text} from 'react-native';
+import LabeledSwitch from 'react-native-custom-switches/LabeledSwitch';
+
+export default function App() {
+  const [state, setState] = useState(false);
+  return (
+    <View style={{padding: 20, alignItems: 'center'}}>
+      <LabeledSwitch
+        value={state}
+        onChange={setState}
+        rightColor="#f35588"
+        leftColor="#05dfd7"
+        rightLabel="Pink means false"
+        leftLabel="Blue means true"
+        width={165}
+      />
+    </View>
+  );
+}
+```
+
+Props:
 
 | Props      | Type     | Default  | Description                    |
 | ---------- | -------- | -------- | ------------------------------ |
