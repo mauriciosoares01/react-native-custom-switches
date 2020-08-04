@@ -32,8 +32,8 @@ export default function App() {
   return (
     <View style={{padding: 20, alignItems: 'center'}}>
       <LabeledSwitch
-        value={state3}
-        onChange={setState3}
+        value={state}
+        onChange={setState}
         disabledColor="#f35588"
         enabledColor="#05dfd7"
         disabledLabel="Pink means false"
